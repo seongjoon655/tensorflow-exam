@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TensorFlow.js Tutorial - lemon</title>
+    <!-- Import TensorFlow.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script> -->
+    <script src="js/tf.min.js"></script>
+
+    <script>
+        async function calc_lemon(){
+            const data =  document.getElementById('indata');
+            const val = data.value;
+            await tf.loadLayersModel('http://localhost:3000/model/lemon.json').then((model)=>{
+                // model.predict(tf.tensor([i_val])).print();
+                const i_val = parseInt(val);                
+                const tens = model.predict(tf.tensor([i_val]));
+                const tens_val = tens.arraySync()[0][0];
+                console.log( tens_val );
+                
+                const res =  document.getElementById('res');
+                res.innerHTML = '예측되는 결과 : ' + tens_val;
+            });            
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        //브라우저 storage 방식
+        // tf.loadLayersModel('localstorage://lemon').then((model)=>{
+        //     model.predict(tf.tensor([20])).print();
+        // });
+
+        //서버의 올린 model
+        // tf.loadLayersModel('http://localhost:3000/model/lemon.json').then((model)=>{
+        //     model.predict(tf.tensor([20])).print();
+        // });
+    </script>
+
+    <h3>[ 생성한 결과로 tensor 결과 값 보기 예제 ]</h5>
+    <span id="info" style="color: darkblue;">원인이 되는 숫자 값 입력&nbsp;(학습 model : 원인*2)</span>
+    <br>
+    <input id="indata" type='text' value='' />
+    <input type='button' onclick='calc_lemon();' value='계산'/>
+    <hr>
+    <span id="res" style="color: tomato;"></span>
+</body>
+
+</html>

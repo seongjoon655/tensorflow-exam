@@ -28,7 +28,7 @@
         // 3. 데이터로 모델을 학습시킵니다. 
         // var fitParam = { epochs: 100 } 
         var fitParam = { 
-            epochs: 2000, 
+            epochs: 6000, 
             callbacks:{
                 onEpochEnd:function(epoch, logs){
                     console.log('epoch', epoch, logs, 'RMSE=>', Math.sqrt(logs.loss));
@@ -41,7 +41,10 @@
             // 4.1 기존의 데이터를 이용
             var 예측한결과 = model.predict(원인);
             예측한결과.print();
-
+            // await model.save('downloads://lemon');
+            // model.save('downloads://lemon');
+            // await model.save('localstorage://my-model');
+            model.save('localstorage://lemon');
         });  
 
         // 4.2 새로운 데이터를 이용

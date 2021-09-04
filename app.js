@@ -22,6 +22,8 @@ app.get('/sub',(req,res)=>{ res.sendFile(__dirname + '/home/index2.html');});
 //tensor - ex
 app.get('/5',(req,res)=>{ res.sendFile(__dirname + '/home/5.html'); });
 app.get('/5.3',(req,res)=>{ res.sendFile(__dirname + '/home/5.3.html'); });
+app.get('/8.save',(req,res)=>{ res.sendFile(__dirname + '/home/8.save.html'); });
+app.get('/8.load',(req,res)=>{ res.sendFile(__dirname + '/home/8.load.html'); });
 
 
 
