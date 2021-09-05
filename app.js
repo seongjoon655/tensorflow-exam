@@ -24,6 +24,10 @@ app.get('/5',(req,res)=>{ res.sendFile(__dirname + '/home/5.html'); });
 app.get('/5.3',(req,res)=>{ res.sendFile(__dirname + '/home/5.3.html'); });
 app.get('/8.save',(req,res)=>{ res.sendFile(__dirname + '/home/8.save.html'); });
 app.get('/8.load',(req,res)=>{ res.sendFile(__dirname + '/home/8.load.html'); });
+app.get('/10.3',(req,res)=>{ res.sendFile(__dirname + '/home/10.3.html'); });
+app.get('/10.4',(req,res)=>{ res.sendFile(__dirname + '/home/10.4.html'); });
+app.get('/11',(req,res)=>{ res.sendFile(__dirname + '/home/11.html'); });
+app.get('/12.2',(req,res)=>{ res.sendFile(__dirname + '/home/12.2.html'); });
 
 
 
